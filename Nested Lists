@@ -1,0 +1,20 @@
+if __name__ == '__main__':
+    l = []
+    for _ in range(int(input())):
+        subl_i = []
+        name = input()
+        score = float(input())
+        subl_i.append(name)
+        subl_i.append(score)
+        l.append(subl_i)
+    mydict = {l[i][0]: l[i][1] for i in range(len(l))}
+    mydict = {k: v for k, v in sorted(mydict.items(), key=lambda item: item[1])}
+    val_to_delete = min(mydict.values())
+    keys_to_delete = [k for k, v in mydict.items() if v == val_to_delete]
+    for k in keys_to_delete:
+        del mydict[k]
+    finval = min(mydict.values())
+    keytopr = [k for k, v in mydict.items() if v == finval]
+    sorted_list = sorted(keytopr)
+    for i in sorted_list:
+        print(i)
